@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لعبة الأسئلة والأجوبة</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- شاشة البداية -->
+        <div id="startScreen" class="screen active">
+            <div class="welcome-box">
+                <h1>🎮 لعبة الأسئلة والأجوبة</h1>
+                <p>اختبر معلوماتك وحقق أعلى النقاط!</p>
+                <div class="difficulty-selection">
+                    <button class="btn btn-easy" onclick="startGame('easy')">سهل</button>
+                    <button class="btn btn-medium" onclick="startGame('medium')">متوسط</button>
+                    <button class="btn btn-hard" onclick="startGame('hard')">صعب</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- شاشة اللعبة -->
+        <div id="gameScreen" class="screen">
+            <div class="game-container">
+                <div class="game-header">
+                    <div class="progress">
+                        <span id="questionNumber">السؤال 1 من 10</span>
+                        <div class="progress-bar">
+                            <div id="progressFill" class="progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="score-display">
+                        النقاط: <span id="score">0</span>
+                    </div>
+                </div>
+
+                <div class="question-container">
+                    <h2 id="questionText"></h2>
+                </div>
+
+                <div class="options-container">
+                    <button class="option-btn" onclick="selectAnswer(0)">
+                        <span class="option-letter">أ</span>
+                        <span class="option-text" id="option0"></span>
+                    </button>
+                    <button class="option-btn" onclick="selectAnswer(1)">
+                        <span class="option-letter">ب</span>
+                        <span class="option-text" id="option1"></span>
+                    </button>
+                    <button class="option-btn" onclick="selectAnswer(2)">
+                        <span class="option-letter">ج</span>
+                        <span class="option-text" id="option2"></span>
+                    </button>
+                    <button class="option-btn" onclick="selectAnswer(3)">
+                        <span class="option-letter">د</span>
+                        <span class="option-text" id="option3"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- شاشة النتائج -->
+        <div id="resultScreen" class="screen">
+            <div class="result-box">
+                <h1 id="resultTitle">انتهت اللعبة!</h1>
+                <div class="score-result">
+                    <p>النقاط النهائية</p>
+                    <div class="final-score" id="finalScore">0</div>
+                    <p id="scorePercentage">0%</p>
+                </div>
+                <div class="result-feedback" id="resultFeedback"></div>
+                <div class="result-buttons">
+                    <button class="btn btn-primary" onclick="location.reload()">العب مرة أخرى</button>
+                    <button class="btn btn-secondary" onclick="showStats()">عرض الإحصائيات</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- شاشة الإحصائيات -->
+        <div id="statsScreen" class="screen">
+            <div class="stats-box">
+                <h1>📊 إحصائياتك</h1>
+                <div class="stats-content">
+                    <div class="stat-item">
+                        <span>إجمالي الأسئلة</span>
+                        <span id="totalQuestions" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>الإجابات الصحيحة</span>
+                        <span id="correctAnswers" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>الإجابات الخاطئة</span>
+                        <span id="wrongAnswers" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>نسبة النجاح</span>
+                        <span id="successRate" class="stat-value">0%</span>
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="goToHome()">العودة للبداية</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
